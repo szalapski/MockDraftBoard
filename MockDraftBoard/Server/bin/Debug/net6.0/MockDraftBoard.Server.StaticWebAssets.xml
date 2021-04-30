@@ -1,0 +1,7 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="C:\s\MockDraftBoard\MockDraftBoard\Client\bin\Debug\net6.0\wwwroot\" />
+  <ContentRoot BasePath="/" Path="C:\s\MockDraftBoard\MockDraftBoard\Client\obj\Debug\net6.0\scopedcss\bundle\" />
+  <ContentRoot BasePath="/" Path="C:\s\MockDraftBoard\MockDraftBoard\Client\wwwroot\" />
+  <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="C:\Users\Patrick\.nuget\packages\microsoft.aspnetcore.components.webassembly.authentication\6.0.0-preview.3.21201.13\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Microsoft.Authentication.WebAssembly.Msal" Path="C:\Users\Patrick\.nuget\packages\microsoft.authentication.webassembly.msal\6.0.0-preview.3.21201.13\build\..\staticwebassets\" />
+</StaticWebAssets>

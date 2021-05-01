@@ -1,0 +1,4 @@
+﻿.panel1 {
+    border: solid green 1px;
+    transition: width 2s;
+}

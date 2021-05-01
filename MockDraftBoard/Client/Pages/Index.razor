@@ -6,6 +6,7 @@
     <button @onclick="() => ShowPanel = !ShowPanel">@(ShowPanel ? "Hide" : "Show")</button>
 </div>
 
+<h3>add/remove</h3>
 @if (ShowPanel) {
     <div class="panel1">
 
@@ -17,6 +18,20 @@
         </div>
     </div>
 }
+
+<h3>show/hide:</h3>
+
+    <div class="panel1 @(ShowPanel ? null : "hidden")">
+
+        <div>
+            Lorem ipsum
+        </div>
+        <div>
+            Lorem ipsum
+        </div>
+    </div>
+
+
 
 @code {
     private bool ShowPanel { get; set; } = true;

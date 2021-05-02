@@ -2,17 +2,18 @@
     border: solid green 1px;
     padding: 10px;
     background-color: palegoldenrod;
-    transition-property: max-height, border-width, margin-bottom, padding-top, padding-bottom;
+    transition-property: border-width, transform, margin-bottom, padding-top, padding-bottom;
     transition-duration: 1s;
+    transform-origin: top;
     transition-timing-function: ease;
-    max-height: 300px;
+    transform: scaleY(1);
 }
-    
+
 
     .panel1.hidden {
-        max-height: 0;
         border-width: 0;
         padding-top: 0;
         padding-bottom: 0;
         overflow: hidden;
+        transform: scaleY(0);
     }

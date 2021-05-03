@@ -25,6 +25,11 @@
     <script src="_content/Microsoft.Authentication.WebAssembly.Msal/AuthenticationService.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <script>
+        MyDOMGetBoundingClientRect = (elementId) => {
+            return document.getElementById(elementId).getBoundingClientRect();
+        };
+    </script>
 </body>
 
 </html>

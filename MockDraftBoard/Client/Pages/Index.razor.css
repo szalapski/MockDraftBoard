@@ -1,19 +1,89 @@
-﻿.panel1 {
+﻿.index {
+    position: relative;
+}
+.panel {
     border: solid green 1px;
     padding: 10px;
+    margin-bottom: 20px;
     background-color: palegoldenrod;
-    transition-property: border-width, transform, margin-bottom, padding-top, padding-bottom;
     transition-duration: 1s;
     transform-origin: top;
     transition-timing-function: ease;
-    transform: scaleY(1);
 }
 
+.hidden {
+    overflow: hidden;
+}
+
+.panel1 {
+    transition-property: max-height, border-width, margin-bottom, padding-top, padding-bottom;
+    max-height: 500px;
+}
 
     .panel1.hidden {
         border-width: 0;
         padding-top: 0;
         padding-bottom: 0;
+        margin-bottom: 0;
         overflow: hidden;
+        max-height: 0;
+    }
+
+
+
+.panel2 {
+    width: 100%;
+    transform: scaleY(1);
+    transition-property: transform, border-width, margin-bottom, padding-top, padding-bottom;
+}
+
+    .panel2.hidden {
+        position: absolute;
+
+        border-width: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
         transform: scaleY(0);
+    }
+
+.panel3 {
+    transition-property: font-size, border-width, margin-bottom, padding-top, padding-bottom;
+}
+
+    .panel3.hidden {
+        border-width: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        font-size: 0;
+    }
+
+
+.panel4 {
+    transition-property: max-height, border-width, margin-bottom, padding-top, padding-bottom;
+    max-height:500px;
+}
+
+    .panel4.hidden {
+        border-width: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        overflow: hidden;
+        max-height: 0;
+    }
+
+
+.panel5 {
+    transition-property: clip, border-width, margin-bottom, padding-top, padding-bottom;
+    clip: rect(auto, auto, 100%, auto);
+}
+
+    .panel5.hidden {
+        border-width: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        clip: rect(auto, auto, 0, auto);
     }

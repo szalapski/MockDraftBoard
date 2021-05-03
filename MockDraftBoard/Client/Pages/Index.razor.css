@@ -74,6 +74,12 @@
         max-height: 0;
     }
 
+.panel4-reference{
+    position:absolute;
+    top: -9999px;
+    visibility:hidden;
+}
+
 
 .panel5 {
     transition-property: clip, border-width, margin-bottom, padding-top, padding-bottom;

@@ -1,0 +1,86 @@
+﻿@inject Microsoft.JSInterop.IJSRuntime JSRuntime
+
+<div class="revealer">
+
+    <div class="revealer-panel">
+        <div>lorem ipsum dolor sit amet</div>
+        <div>lorem ipsum dolor sit amet</div>
+    </div>
+
+
+</div>
+
+
+    <div class="revealer-panel-reference">
+        <div>lorem ipsum dolor sit amet</div>
+        <div>lorem ipsum dolor sit amet</div>
+    </div>
+
+
+
+
+
+<style>
+
+.revealer {
+    transition-property: max-height, border-width, margin-bottom, padding-top, padding-bottom;
+    max-height:500px;
+}
+
+    .revealer.hidden {
+        border-width: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        overflow: hidden;
+        max-height: 0;
+    }
+
+.revealer-panel-reference{
+    position:absolute;
+    top: -9999px;
+    visibility:hidden;
+}
+
+</style>
+
+@code {
+    [Parameter]
+    public bool ShowPanel { get; set; } = true;
+
+    public class BoundingClientRect
+    {
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
+        public double Top { get; set; }
+        public double Right { get; set; }
+        public double Bottom { get; set; }
+        public double Left { get; set; }
+    }
+
+    private double ElementShownMaxHeight { get; set; } = 500;
+    private double ElementMaxHeight => ShowPanel ? ElementShownMaxHeight : 0;
+    private bool ElementIsVisible { get; set; } = true;
+    private string visiblityStyle => $"visibility: {(ElementIsVisible ? "visible" : "hidden")};";
+    string elementStyle =>
+        $"max-height: {ElementMaxHeight}px; {visiblityStyle}";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender) await refreshMaxHeightFromRenderedElement();
+    }
+
+    private async Task refreshMaxHeightFromRenderedElement()
+    {
+        var result = await JSRuntime.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new[] { "panel4-reference" });
+        if (result.Height > 0)
+        {
+            ElementShownMaxHeight = result.Height;
+            Console.WriteLine(elementStyle);
+            StateHasChanged();
+        }
+    }
+}
+

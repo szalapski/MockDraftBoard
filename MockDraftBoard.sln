@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31220.234
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockDraftBoard.Server", "MockDraftBoard\Server\MockDraftBoard.Server.csproj", "{7F0EBEC3-85B8-4597-BA9F-05A763F3EF17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockDraftBoard.Server", "MockDraftBoard\Server\MockDraftBoard.Server.csproj", "{7F0EBEC3-85B8-4597-BA9F-05A763F3EF17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockDraftBoard.Client", "MockDraftBoard\Client\MockDraftBoard.Client.csproj", "{A70ED82B-AB0A-4B6B-9F6E-A87CD483F8E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockDraftBoard.Client", "MockDraftBoard\Client\MockDraftBoard.Client.csproj", "{A70ED82B-AB0A-4B6B-9F6E-A87CD483F8E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockDraftBoard.Shared", "MockDraftBoard\Shared\MockDraftBoard.Shared.csproj", "{FD8CE03E-D0CF-41D6-B114-69719619EF9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockDraftBoard.Shared", "MockDraftBoard\Shared\MockDraftBoard.Shared.csproj", "{FD8CE03E-D0CF-41D6-B114-69719619EF9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorClassLibrary1", "RazorClassLibrary1\RazorClassLibrary1.csproj", "{CB58ABA3-37FC-45EA-908A-330DA38C3356}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{FD8CE03E-D0CF-41D6-B114-69719619EF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD8CE03E-D0CF-41D6-B114-69719619EF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD8CE03E-D0CF-41D6-B114-69719619EF9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB58ABA3-37FC-45EA-908A-330DA38C3356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB58ABA3-37FC-45EA-908A-330DA38C3356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB58ABA3-37FC-45EA-908A-330DA38C3356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB58ABA3-37FC-45EA-908A-330DA38C3356}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

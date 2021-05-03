@@ -1,10 +1,16 @@
 ﻿@page "/"
 @inject IJSRuntime JSRuntime
+@using RazorClassLibrary1;
 
 <div class="index">
-    <h1>Hello, world!</h1>
 
-    
+    <h3>panel 6 - dynamic max-height</h3>
+    <div>
+        <button @onclick="TogglePanel6">@(ShowPanel[6] ? "Hide" : "Show")</button>
+    </div>
+
+    <Revealer ShowPanel="ShowPanel[6]" ></Revealer>
+
     <h3>panel 4 - dynamic max-height</h3>
     <div>
         <button @onclick="TogglePanel4">@(ShowPanel[4] ? "Hide" : "Show")</button>
@@ -16,7 +22,13 @@
         <div>Lorem ipsum</div>
     </div>
 
-    
+    <div id="panel4-reference" class="panel panel4-reference">
+        <div>Lorem ipsum</div>
+        <div>Lorem ipsum</div>
+    </div>
+
+
+
 
     <h3>panel 5 - max height with static height</h3>
     <div>
@@ -76,7 +88,7 @@
 
 </div>
 @code {
-    private bool[] ShowPanel { get; set; } = { true, true, true, true, false, true };
+    private bool[] ShowPanel { get; set; } = { true, true, true, true, false, true, false };
     public class BoundingClientRect
     {
         public double X { get; set; }
@@ -103,34 +115,28 @@
 
     private async Task refreshMaxHeightFromRenderedElement()
     {
-        if (ShowPanel[4])
+        var result = await JSRuntime.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new[] { "panel4-reference" });
+        if (result.Height > 0)
         {
-            var result = await JSRuntime.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new[] { "panel4" });
-            if (result.Height > 0)
-            {
-                ElementShownMaxHeight = result.Height;
-                Console.WriteLine(elementStyle);
-                StateHasChanged();
-            }
+            ElementShownMaxHeight = result.Height;
+            Console.WriteLine(elementStyle);
+            StateHasChanged();
         }
     }
 
     private async Task TogglePanel4()
     {
-        if (ShowPanel[4])
-        {
-            await refreshMaxHeightFromRenderedElement();
-        }
+        await refreshMaxHeightFromRenderedElement();
+        await Task.Delay(1);
 
         ShowPanel[4] = !ShowPanel[4];
-       
-        if (ShowPanel[4])
-        {
-            await Task.Delay(2000);
-            await refreshMaxHeightFromRenderedElement();
-        }
+    }
+   private async Task TogglePanel6()
+    {
+        await refreshMaxHeightFromRenderedElement();
+        await Task.Delay(1);
 
-
+        ShowPanel[6] = !ShowPanel[6];
     }
 
 }

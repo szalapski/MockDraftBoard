@@ -1,0 +1,20 @@
+﻿
+.revealer-panel {
+    transition-property: max-height, border-width, margin-bottom, padding-top, padding-bottom;
+    max-height: 500px;
+}
+
+.revealer-panel.hidden {
+    border-width: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    max-height: 0;
+}
+
+.revealer-panel-reference {
+    position: absolute;
+    top: -9999px;
+    visibility: hidden;
+}

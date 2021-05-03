@@ -1,0 +1,63 @@
+﻿@page "/"
+@inject IJSRuntime JSRuntime
+
+<div class="revealer">
+
+    <div class="revealer-panel">
+        <div>lorem ipsum dolor sit amet</div>
+        <div>lorem ipsum dolor sit amet</div>
+    </div>
+   
+</div>
+@code {
+    [Parameter]
+    public bool ShowPanel { get; set; } = true;
+
+    public class BoundingClientRect
+    {
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
+        public double Top { get; set; }
+        public double Right { get; set; }
+        public double Bottom { get; set; }
+        public double Left { get; set; }
+    }
+
+    private double ElementShownMaxHeight { get; set; } = 500;
+    private double ElementMaxHeight => ShowPanel[4] ? ElementShownMaxHeight : 0;
+    private bool ElementIsVisible { get; set; } = true;
+    private string visiblityStyle => $"visibility: {(ElementIsVisible ? "visible" : "hidden")};";
+    string elementStyle =>
+        $"max-height: {ElementMaxHeight}px; {visiblityStyle}";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender) await refreshMaxHeightFromRenderedElement();
+    }
+
+    private async Task refreshMaxHeightFromRenderedElement()
+    {
+        var result = await JSRuntime.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new[] { "panel4-reference" });
+        if (result.Height > 0)
+        {
+            ElementShownMaxHeight = result.Height;
+            Console.WriteLine(elementStyle);
+            StateHasChanged();
+        }
+    }
+
+    private async Task TogglePanel4()
+    {
+        await refreshMaxHeightFromRenderedElement();
+        await Task.Delay(1);
+
+        ShowPanel[4] = !ShowPanel[4];
+
+
+
+    }
+
+}
+
